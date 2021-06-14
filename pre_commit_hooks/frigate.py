@@ -8,9 +8,8 @@ from frigate.gen import gen
 
 def main(argv=None):
     parser = argparse.ArgumentParser(
-        description="""Run terraform-docs on a set of files. Follows the standard convention of
-                       pulling the documentation from main.tf in order to replace the entire
-                       README.md file each time."""
+        description="""Run frigate nd replace the entire
+                       README.md file each chart folder."""
     )
     parser.add_argument(
         "--output",

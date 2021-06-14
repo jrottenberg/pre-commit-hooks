@@ -19,18 +19,17 @@ repos: # pre-commit autoupdate
   - id: end-of-file-fixer
   - id: requirements-txt-fixer
   - id: mixed-line-ending
-    args: ['--fix=auto']  # replace 'auto' with 'lf' to enforce Linux/Mac line endings or 'crlf' for Windows
+    args: ['--fix=auto']
 
-## If you want to avoid flake8 errors due to unused vars or imports:
-# - repo: https://github.com/myint/autoflake.git
-#   rev: v1.4
-#   hooks:
-#   - id: autoflake
-#     args: [
-#       --in-place,
-#       --remove-all-unused-imports,
-#       --remove-unused-variables,
-#     ]
+- repo: https://github.com/myint/autoflake.git
+  rev: v1.4
+  hooks:
+  - id: autoflake
+    args: [
+      --in-place,
+      --remove-all-unused-imports,
+      --remove-unused-variables,
+    ]
 
 - repo: https://github.com/pycqa/isort
   rev: 5.8.0
@@ -43,9 +42,8 @@ repos: # pre-commit autoupdate
   - id: black
     language_version: python3
 
-## If like to embrace black styles even in the docs:
-# - repo: https://github.com/asottile/blacken-docs
-#   rev: v1.9.1
-#   hooks:
-#   - id: blacken-docs
-#     additional_dependencies: [black]
+- repo: https://github.com/asottile/blacken-docs
+  rev: v1.9.1
+  hooks:
+  - id: blacken-docs
+    additional_dependencies: [black]
