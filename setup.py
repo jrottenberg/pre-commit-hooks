@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="pre-commit-terraform",
-    description="Pre-commit hooks for frigate_replace",
+    description="Pre-commit hooks for frigate",
     url="https://github.com",
     version_format="{tag}+{gitsha}",
     author="Contributors",
