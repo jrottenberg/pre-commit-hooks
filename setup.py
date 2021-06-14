@@ -22,7 +22,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "frigate_replace = pre_commit_hooks.frigate:main",
+            "pre_commit_frigate = pre_commit_hooks.frigate:main",
         ],
     },
 )
