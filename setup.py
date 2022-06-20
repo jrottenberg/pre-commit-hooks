@@ -16,11 +16,11 @@ setup(
     ],
     packages=find_packages(exclude=("tests*", "testing*")),
     install_requires=[
-        "frigate",
+        "pipreqs"
     ],
     entry_points={
         "console_scripts": [
-            "pre_commit_frigate = pre_commit_hooks.frigate:main",
+            "pre_commit_pipreqs = pre_commit_hooks.hook_pipreqs:main",
         ],
     },
 )

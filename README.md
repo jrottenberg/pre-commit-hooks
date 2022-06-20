@@ -21,8 +21,7 @@ EOF
 ## Hooks
 
 
-### Frigate
+### Pifreqs
 
 
-Run [frigate](https://github.com/rapidsai/frigate) against the detected chart(s) in the repository and create/update
-a README.md file in the same folder.
+Leverage [pifreqs](https://github.com/bndr/pipreqs) to validate the required packages in code versus in setup.py
