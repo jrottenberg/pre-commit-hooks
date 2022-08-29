@@ -1,0 +1,11 @@
+name: Release Actions
+on:
+  push:
+    branches: [main]
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - run: npm install @semantic-release/github  && npx semantic-release
