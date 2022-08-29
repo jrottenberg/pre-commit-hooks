@@ -1,0 +1,11 @@
+name: Test Release Actions
+on:
+  push:
+    branches: [semrel]
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - run: npm install @semantic-release/github  --dry-run --no-ci --branches $CI_COMMIT_BRANCH
