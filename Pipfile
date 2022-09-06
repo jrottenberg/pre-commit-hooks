@@ -1,0 +1,12 @@
+
+[packages]
+"ruamel.yaml" = "*"
+packaging = "*"
+
+[dev-packages]
+
+
+[requires]
+python_version = "3"
+
+[scripts]

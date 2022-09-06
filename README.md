@@ -1,6 +1,5 @@
 # Pre-commit-hooks
 
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
 ## Installation
 
@@ -21,8 +20,16 @@ EOF
 ## Hooks
 
 
-### Frigate
+### Pinned Update
 
 
-Run [frigate](https://github.com/rapidsai/frigate) against the detected chart(s) in the repository and create/update
-a README.md file in the same folder.
+WIP: Update any pinned version discovered in the project.
+
+#### Current
+
+ - Gitlab-ci
+
+
+#### Next
+
+ - Dockerfile

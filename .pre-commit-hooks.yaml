@@ -1,7 +1,6 @@
--   id: frigate
-    name: frigate
-    entry: pre_commit_frigate
-    language: python
-    require_serial: true
-    always_run: true
-    additional_dependencies: ["frigate"]
+- id: pinned_update
+  name: pinned_update
+  entry: pinned_update
+  language: python
+  require_serial: true
+  always_run: true
