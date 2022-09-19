@@ -7,7 +7,6 @@ import ruamel.yaml
 
 from pre_commit_hooks.utils import cmd_output, get_all_tags, highest_version
 
-
 yaml = ruamel.yaml.YAML()
 
 yaml.indent(mapping=2, sequence=4, offset=2)
@@ -32,14 +31,14 @@ def update_gitlab_ci(gitlab_ci: str) -> int:
     else:
         prefix = gitlab_origin.split(":")[0] + ":"
 
-    for elt in updated_gitlab_ci_object['include']:
+    for elt in updated_gitlab_ci_object["include"]:
         if "ref" in elt:
-            position =  updated_gitlab_ci_object['include'].index(elt)
+            position = updated_gitlab_ci_object["include"].index(elt)
             all_tags = get_all_tags(prefix + elt["project"])
             latest = highest_version(all_tags)
             if elt["ref"] != latest:
                 elt["ref"] = latest
-                updated_gitlab_ci_object['include'][position] = elt
+                updated_gitlab_ci_object["include"][position] = elt
                 retval += 1
 
     if retval > 0:
