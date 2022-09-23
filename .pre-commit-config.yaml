@@ -21,8 +21,8 @@ repos: # pre-commit autoupdate
       - id: mixed-line-ending
         args: ["--fix=auto"]
 
-  - repo: https://github.com/myint/autoflake.git
-    rev: v1.5.3
+  - repo: https://github.com/PyCQA/autoflake
+    rev: v1.6.0
     hooks:
       - id: autoflake
         args:
