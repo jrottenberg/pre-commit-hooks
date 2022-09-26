@@ -22,7 +22,7 @@ repos: # pre-commit autoupdate
         args: ["--fix=auto"]
 
   - repo: https://github.com/PyCQA/autoflake
-    rev: v1.6.0
+    rev: v1.6.1
     hooks:
       - id: autoflake
         args:
@@ -46,7 +46,7 @@ repos: # pre-commit autoupdate
         additional_dependencies: [black]
 
   - repo: https://github.com/asottile/add-trailing-comma
-    rev: v2.2.3
+    rev: v2.3.0
     hooks:
       - id: add-trailing-comma
         args: [--py36-plus]
