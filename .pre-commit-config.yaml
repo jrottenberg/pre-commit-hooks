@@ -22,7 +22,7 @@ repos: # pre-commit autoupdate
         args: ["--fix=auto"]
 
   - repo: https://github.com/PyCQA/autoflake
-    rev: v1.7.1
+    rev: v1.7.7
     hooks:
       - id: autoflake
         args:
@@ -51,7 +51,7 @@ repos: # pre-commit autoupdate
       - id: add-trailing-comma
         args: [--py36-plus]
   - repo: https://github.com/asottile/setup-cfg-fmt
-    rev: v2.0.0
+    rev: v2.1.0
     hooks:
       - id: setup-cfg-fmt
   - repo: https://github.com/pre-commit/mirrors-mypy
