@@ -8,7 +8,7 @@ import ruamel.yaml
 from pre_commit_hooks.meta.flake8 import adjust_flake8_url
 
 
-def main(argv=None):
+def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=""" """)
     parser.add_argument(
         "--pre-commit-config",
