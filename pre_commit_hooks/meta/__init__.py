@@ -2,8 +2,10 @@ import argparse
 import sys
 from pathlib import Path
 
-from pre_commit_hooks.meta.flake8 import adjust_flake8_url
 # from pre_commit_hooks.meta.github import replace_github_protocol
+import ruamel.yaml
+
+from pre_commit_hooks.meta.flake8 import adjust_flake8_url
 
 
 def main(argv=None):
@@ -17,10 +19,25 @@ def main(argv=None):
 
     args, _ = parser.parse_known_args()
 
-    pre_commit_config = Path(args.PRE_COMMIT_CONFIG)
-    if pre_commit_config.exists():
-        adjust_flake8_url(pre_commit_config)
-        # replace_github_protocol(pre_commit_config)
+    pre_commit_config_path = Path(args.PRE_COMMIT_CONFIG)
+
+    yaml = ruamel.yaml.YAML()
+    yaml.indent(mapping=2, sequence=4, offset=2)
+
+    if not pre_commit_config_path.exists():
+        return 1
+
+    with open(pre_commit_config_path) as pre_commit_config:
+        original_pre_commit_config = yaml.load(
+            pre_commit_config,
+        )
+
+    flake8_pre_commit_config = adjust_flake8_url(original_pre_commit_config)
+    if not flake8_pre_commit_config == original_pre_commit_config:
+        with open(pre_commit_config_path, "w") as pre_commit_config:
+            yaml.dump(flake8_pre_commit_config, pre_commit_config) 
+        return 1        
+    # replace_github_protocol(pre_commit_config)
 
 
 if __name__ == "__main__":
