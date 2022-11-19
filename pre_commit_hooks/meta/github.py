@@ -15,7 +15,7 @@ yaml.indent(mapping=2, sequence=4, offset=2)
 def update_gitlab_ci(gitlab_ci: str) -> int:
     retval = 0
 
-    with open(gitlab_ci) as gitlab_ci_file:
+    with open(gitlab_ci, "r") as gitlab_ci_file:
         original_gitlab_ci_object = yaml.load(
             gitlab_ci_file,
         )

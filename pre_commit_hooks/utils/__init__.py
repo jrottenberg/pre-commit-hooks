@@ -1,5 +1,5 @@
 import subprocess
-from typing import Any, Dict, Optional, Tuple
+from typing import Any
 
 from packaging.version import parse as parseVersion
 
@@ -10,16 +10,16 @@ class CalledProcessError(RuntimeError):
 
 # abreged version of cmd_output_b
 # https://github.com/simplivity/pre-commit/blob/524bdaeb33032d97dc27bbeaa6d89eed9e429834/pre_commit/util.py#L123
-def _setdefault_kwargs(kwargs: Dict[str, Any]) -> None:
+def _setdefault_kwargs(kwargs: dict[str, Any]) -> None:
     for arg in ("stdin", "stdout", "stderr"):
         kwargs.setdefault(arg, subprocess.PIPE)
 
 
 def cmd_output_b(
     *cmd: str,
-    retcode: Optional[int] = 0,
+    retcode: int | None = 0,
     **kwargs: Any,
-) -> Tuple[int, bytes, Optional[bytes]]:
+) -> tuple[int, bytes, bytes | None]:
     _setdefault_kwargs(kwargs)
 
     proc = subprocess.Popen(cmd, **kwargs)
@@ -32,7 +32,7 @@ def cmd_output_b(
     return returncode, stdout_b, stderr_b
 
 
-def cmd_output(*cmd: str, **kwargs: Any) -> Tuple[int, str, Optional[str]]:
+def cmd_output(*cmd: str, **kwargs: Any) -> tuple[int, str, str | None]:
     returncode, stdout_b, stderr_b = cmd_output_b(*cmd, **kwargs)
     stdout = stdout_b.decode() if stdout_b is not None else None
     stderr = stderr_b.decode() if stderr_b is not None else None

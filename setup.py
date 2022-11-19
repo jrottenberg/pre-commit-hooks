@@ -21,6 +21,7 @@ setup(
     entry_points={
         "console_scripts": [
             "pinned_update = pre_commit_hooks.pinned_update:main",
+            "meta = pre_commit_hooks.meta:main",
         ],
     },
 )
