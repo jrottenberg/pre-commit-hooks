@@ -24,6 +24,8 @@ def main(argv=None):
     yaml = ruamel.yaml.YAML()
     yaml.indent(mapping=2, sequence=4, offset=2)
 
+    retval = 0
+
     if not pre_commit_config_path.exists():
         return 1
 
@@ -33,12 +35,18 @@ def main(argv=None):
         )
 
     flake8_pre_commit_config = adjust_flake8_url(original_pre_commit_config)
-    if not flake8_pre_commit_config == original_pre_commit_config:
-        with open(pre_commit_config_path, "w") as pre_commit_config:
-            yaml.dump(flake8_pre_commit_config, pre_commit_config) 
-        return 1        
+
+    if flake8_pre_commit_config != original_pre_commit_config:
+        retval += 1
+        original_pre_commit_config = flake8_pre_commit_config
+
     # replace_github_protocol(pre_commit_config)
 
+    if retval > 0:
+        with open(pre_commit_config_path, "w") as pre_commit_config:
+            yaml.dump(original_pre_commit_config, pre_commit_config) 
+
+    return retval
 
 if __name__ == "__main__":
     sys.exit(main())
