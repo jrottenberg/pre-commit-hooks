@@ -44,8 +44,15 @@ def main(argv=None) -> int:
     replaced = io.BytesIO()
     yaml.dump(pre_commit_config, replaced)
 
+    first = original.getvalue()
+    second = replaced.getvalue()
 
-    if original.getvalue() != replaced.getvalue():
+
+    print(first)
+    print(second)
+
+
+    if first != second:
         with open(pre_commit_config_path, "w") as pre_commit_config_file:
             yaml.dump(pre_commit_config, pre_commit_config_file) 
         
