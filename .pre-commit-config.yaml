@@ -1,5 +1,5 @@
 repos: # pre-commit autoupdate
-  - repo: https://github.com/PyCQA/flake8
+  - repo: https://gitlab.com/PyCQA/flake8
     rev: "5.0.4"
     hooks:
       - id: flake8
@@ -21,7 +21,7 @@ repos: # pre-commit autoupdate
       - id: mixed-line-ending
         args: ["--fix=auto"]
 
-  - repo: https://github.com/PyCQA/autoflake
+  - repo: https://gitlab.com/PyCQA/autoflake
     rev: v1.7.7
     hooks:
       - id: autoflake

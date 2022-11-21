@@ -40,7 +40,11 @@ def main(argv=None) -> int:
         retval += 1
         original_pre_commit_config = flake8_pre_commit_config
 
-    # replace_github_protocol(pre_commit_config)
+    github_pre_commit_config = replace_github_protocol(pre_commit_config)
+    if github_pre_commit_config != original_pre_commit_config:
+        retval += 1
+        original_pre_commit_config = github_pre_commit_config
+
 
     if retval > 0:
         with open(pre_commit_config_path, "w") as pre_commit_config:
