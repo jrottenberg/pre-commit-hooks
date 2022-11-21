@@ -1,6 +1,7 @@
 import argparse
 import sys
 from pathlib import Path
+import io 
 
 import ruamel.yaml
 
@@ -35,12 +36,16 @@ def main(argv=None) -> int:
 
     original_pre_commit_config = pre_commit_config
     adjust_pycqa_url(pre_commit_config)
-    print(pre_commit_config)
     replace_github_protocol(pre_commit_config)
-    print(pre_commit_config)
    
     
-    if original_pre_commit_config != pre_commit_config:
+    original = io.BytesIO()
+    yaml.dump(original_pre_commit_config, original)
+    replaced = io.BytesIO()
+    yaml.dump(pre_commit_config, replaced)
+
+
+    if original.getvalue() != replaced.getvalue():
         with open(pre_commit_config_path, "w") as pre_commit_config_file:
             yaml.dump(pre_commit_config, pre_commit_config_file) 
         
