@@ -35,12 +35,15 @@ def main(argv=None) -> int:
 
     original_pre_commit_config = pre_commit_config
     adjust_pycqa_url(pre_commit_config)
+    print(pre_commit_config)
     replace_github_protocol(pre_commit_config)
+    print(pre_commit_config)
    
-
-    with open(pre_commit_config_path, "w") as pre_commit_config_file:
-        yaml.dump(pre_commit_config, pre_commit_config_file) 
-      
+    
+    if original_pre_commit_config != pre_commit_config:
+        with open(pre_commit_config_path, "w") as pre_commit_config_file:
+            yaml.dump(pre_commit_config, pre_commit_config_file) 
+        
 
 
 if __name__ == "__main__":
