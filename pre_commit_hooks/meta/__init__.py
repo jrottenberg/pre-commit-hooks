@@ -25,7 +25,7 @@ def main(argv=None) -> int:
     yaml.indent(mapping=2, sequence=4, offset=2)
 
     retval = 0
-
+    
     if not pre_commit_config_path.exists():
         return 1
 
@@ -34,20 +34,24 @@ def main(argv=None) -> int:
             pre_commit_config_file,
         )
 
-    pycqa_pre_commit_config = adjust_pycqa_url(pre_commit_config)
-    if pycqa_pre_commit_config != pre_commit_config:
-        retval += 1
-        pre_commit_config = pycqa_pre_commit_config
+    original_pre_commit_config = pre_commit_config
 
-    github_pre_commit_config = replace_github_protocol(pre_commit_config)
-    if github_pre_commit_config != pre_commit_config:
-        retval += 1
-        pre_commit_config = github_pre_commit_config
+    print(pre_commit_config)
 
 
-    if retval > 0:
+    adjust_pycqa_url(pre_commit_config)
+    print(pre_commit_config)
+
+    replace_github_protocol(pre_commit_config)
+    print(pre_commit_config)
+
+    
+
+    if original_pre_commit_config != pre_commit_config:
+
         with open(pre_commit_config_path, "w") as pre_commit_config_file:
             yaml.dump(pre_commit_config, pre_commit_config_file) 
+        retval = 1    
 
     return retval
 

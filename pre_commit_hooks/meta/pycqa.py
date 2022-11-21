@@ -6,8 +6,7 @@ import ruamel
 
 
 def adjust_pycqa_url(pre_commit_config: ruamel.yaml.comments.CommentedMap) -> ruamel.yaml.comments.CommentedMap:
-    flake8_regexp = re.compile('gitlab.com\\/pycqa', re.IGNORECASE)
-
+    flake8_regexp = re.compile(r"gitlab\.com/pycqa", re.IGNORECASE)
     i = 0
     for item in pre_commit_config['repos']:
         replacement = re.sub(flake8_regexp, "github.com/pycqa",item['repo'])
