@@ -24,7 +24,6 @@ def main(argv=None) -> int:
     yaml = ruamel.yaml.YAML()
     yaml.indent(mapping=2, sequence=4, offset=2)
 
-    retval = 0
     
     if not pre_commit_config_path.exists():
         return 1
@@ -41,9 +40,8 @@ def main(argv=None) -> int:
 
     with open(pre_commit_config_path, "w") as pre_commit_config_file:
         yaml.dump(pre_commit_config, pre_commit_config_file) 
-    retval = 1    
+      
 
-    return retval
 
 if __name__ == "__main__":
     sys.exit(main())
