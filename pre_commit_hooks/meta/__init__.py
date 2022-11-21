@@ -4,12 +4,12 @@ from pathlib import Path
 
 import ruamel.yaml
 
-from pre_commit_hooks.meta.flake8 import adjust_flake8_url
+from pre_commit_hooks.meta.pycqa import adjust_pycqa_url
 from pre_commit_hooks.meta.github import replace_github_protocol
 
 
 def main(argv=None) -> int:
-    parser = argparse.ArgumentParser(description=""" """)
+    parser = argparse.ArgumentParser(description="""Where to find the config ?""")
     parser.add_argument(
         "--pre-commit-config",
         dest="PRE_COMMIT_CONFIG",
@@ -29,26 +29,25 @@ def main(argv=None) -> int:
     if not pre_commit_config_path.exists():
         return 1
 
-    with open(pre_commit_config_path) as pre_commit_config:
-        original_pre_commit_config = yaml.load(
-            pre_commit_config,
+    with open(pre_commit_config_path) as pre_commit_config_file:
+        pre_commit_config = yaml.load(
+            pre_commit_config_file,
         )
 
-    flake8_pre_commit_config = adjust_flake8_url(original_pre_commit_config)
-
-    if flake8_pre_commit_config != original_pre_commit_config:
+    pycqa_pre_commit_config = adjust_pycqa_url(pre_commit_config)
+    if pycqa_pre_commit_config != original_pre_commit_config:
         retval += 1
-        original_pre_commit_config = flake8_pre_commit_config
+        pre_commit_config = pycqa_pre_commit_config
 
     github_pre_commit_config = replace_github_protocol(pre_commit_config)
     if github_pre_commit_config != original_pre_commit_config:
         retval += 1
-        original_pre_commit_config = github_pre_commit_config
+        pre_commit_config = github_pre_commit_config
 
 
     if retval > 0:
-        with open(pre_commit_config_path, "w") as pre_commit_config:
-            yaml.dump(original_pre_commit_config, pre_commit_config) 
+        with open(pre_commit_config_path, "w") as pre_commit_config_file:
+            yaml.dump(pre_commit_config, pre_commit_config_file) 
 
     return retval
 
