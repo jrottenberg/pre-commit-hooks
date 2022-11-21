@@ -1,15 +1,15 @@
 import argparse
+import io
 import sys
 from pathlib import Path
-import io 
 
 import ruamel.yaml
 
-from pre_commit_hooks.meta.pycqa import adjust_pycqa_url
 from pre_commit_hooks.meta.github import replace_github_protocol
+from pre_commit_hooks.meta.pycqa import adjust_pycqa_url
 
 
-def main(argv=None) -> int:
+def main(argv=None):
     parser = argparse.ArgumentParser(description="""Where to find the config ?""")
     parser.add_argument(
         "--pre-commit-config",
@@ -25,7 +25,6 @@ def main(argv=None) -> int:
     yaml = ruamel.yaml.YAML()
     yaml.indent(mapping=2, sequence=4, offset=2)
 
-    
     if not pre_commit_config_path.exists():
         return 1
 
@@ -33,8 +32,6 @@ def main(argv=None) -> int:
         pre_commit_config = yaml.load(
             pre_commit_config_file,
         )
-
-
 
     original = io.BytesIO()
     yaml.dump(pre_commit_config, original)
@@ -48,8 +45,7 @@ def main(argv=None) -> int:
     # No deep orderredDict compare, so dump to a ephemeral stream
     if original.getvalue() != replaced.getvalue():
         with open(pre_commit_config_path, "w") as pre_commit_config_file:
-            yaml.dump(pre_commit_config, pre_commit_config_file) 
-        return 1
+            yaml.dump(pre_commit_config, pre_commit_config_file)
 
 
 if __name__ == "__main__":
