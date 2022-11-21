@@ -34,28 +34,22 @@ def main(argv=None) -> int:
             pre_commit_config_file,
         )
 
-    original_pre_commit_config = pre_commit_config
+
+
+    original = io.BytesIO()
+    yaml.dump(pre_commit_config, original)
+
     adjust_pycqa_url(pre_commit_config)
     replace_github_protocol(pre_commit_config)
-   
-    
-    original = io.BytesIO()
-    yaml.dump(original_pre_commit_config, original)
+
     replaced = io.BytesIO()
     yaml.dump(pre_commit_config, replaced)
 
-    first = original.getvalue()
-    second = replaced.getvalue()
-
-
-    print(first)
-    print(second)
-
-
-    if first != second:
+    # No deep orderredDict compare, so dump to a ephemeral stream
+    if original.getvalue() != replaced.getvalue():
         with open(pre_commit_config_path, "w") as pre_commit_config_file:
             yaml.dump(pre_commit_config, pre_commit_config_file) 
-        
+        return 1
 
 
 if __name__ == "__main__":
