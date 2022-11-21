@@ -2,10 +2,10 @@ import argparse
 import sys
 from pathlib import Path
 
-# from pre_commit_hooks.meta.github import replace_github_protocol
 import ruamel.yaml
 
 from pre_commit_hooks.meta.flake8 import adjust_flake8_url
+from pre_commit_hooks.meta.github import replace_github_protocol
 
 
 def main(argv=None) -> int:
