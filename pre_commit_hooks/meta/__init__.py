@@ -35,12 +35,12 @@ def main(argv=None) -> int:
         )
 
     pycqa_pre_commit_config = adjust_pycqa_url(pre_commit_config)
-    if pycqa_pre_commit_config != original_pre_commit_config:
+    if pycqa_pre_commit_config != pre_commit_config:
         retval += 1
         pre_commit_config = pycqa_pre_commit_config
 
     github_pre_commit_config = replace_github_protocol(pre_commit_config)
-    if github_pre_commit_config != original_pre_commit_config:
+    if github_pre_commit_config != pre_commit_config:
         retval += 1
         pre_commit_config = github_pre_commit_config
 
