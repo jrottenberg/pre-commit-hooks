@@ -4,10 +4,3 @@
   language: python
   require_serial: true
   always_run: true
-
-- id: meta
-  name: meta
-  entry: meta
-  language: python
-  require_serial: true
-  always_run: true
