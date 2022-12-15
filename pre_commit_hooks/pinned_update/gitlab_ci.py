@@ -16,9 +16,7 @@ def update_gitlab_ci(gitlab_ci: str) -> int:
     retval = 0
 
     with open(gitlab_ci) as gitlab_ci_file:
-        original_gitlab_ci_object = yaml.load(
-            gitlab_ci_file,
-        )
+        original_gitlab_ci_object = yaml.load(gitlab_ci_file)
     updated_gitlab_ci_object = original_gitlab_ci_object
 
     if "include" not in original_gitlab_ci_object:

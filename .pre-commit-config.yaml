@@ -17,7 +17,6 @@ repos: # pre-commit autoupdate
       - id: check-yaml
       - id: debug-statements
       - id: end-of-file-fixer
-      - id: requirements-txt-fixer
       - id: mixed-line-ending
         args: [--fix=auto]
 
@@ -29,12 +28,12 @@ repos: # pre-commit autoupdate
           [--in-place, --remove-all-unused-imports, --remove-unused-variables]
 
   - repo: https://github.com/pycqa/isort
-    rev: 5.10.1
+    rev: 5.11.2
     hooks:
       - id: isort
 
   - repo: https://github.com/psf/black
-    rev: 22.10.0
+    rev: 22.12.0
     hooks:
       - id: black
         language_version: python3
@@ -46,7 +45,7 @@ repos: # pre-commit autoupdate
         additional_dependencies: [black]
 
   - repo: https://github.com/asottile/add-trailing-comma
-    rev: v2.3.0
+    rev: v2.4.0
     hooks:
       - id: add-trailing-comma
         args: [--py36-plus]
@@ -67,7 +66,7 @@ repos: # pre-commit autoupdate
       - id: validate_manifest
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.2.2
+    rev: v3.3.1
     hooks:
       - id: pyupgrade
         args: [--py37-plus]
