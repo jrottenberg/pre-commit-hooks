@@ -4,8 +4,7 @@ on:
     branches-ignore:
       - main
 jobs:
-  release:
-    name: test-release
+  release-test:
     runs-on: ubuntu-latest
     container: node:lts
     steps:
