@@ -3,6 +3,7 @@ from typing import Any
 
 from packaging import version
 
+
 class CalledProcessError(RuntimeError):
     pass
 
@@ -58,4 +59,3 @@ def get_all_tags(remote: str) -> list[str]:
 def highest_version(all_versions: list[str]) -> str:
     all_versions.sort(key=version.parse)
     return all_versions[-1]
-
