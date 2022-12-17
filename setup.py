@@ -18,7 +18,7 @@ setup(
         "Programming Language :: Python :: Implementation :: PyPy",
     ],
     packages=find_packages(exclude=("tests*", "testing*")),
-    install_requires=['ruamel.yaml', 'packaging'],
+    install_requires=["ruamel.yaml", "packaging"],
     entry_points={
         "console_scripts": [
             "pinned_update = pre_commit_hooks.pinned_update:main",
