@@ -17,7 +17,6 @@ repos: # pre-commit autoupdate
       - id: check-yaml
       - id: debug-statements
       - id: end-of-file-fixer
-      - id: requirements-txt-fixer
       - id: mixed-line-ending
         args: [--fix=auto]
 
@@ -29,7 +28,7 @@ repos: # pre-commit autoupdate
           [--in-place, --remove-all-unused-imports, --remove-unused-variables]
 
   - repo: https://github.com/pycqa/isort
-    rev: 5.10.1
+    rev: v5.11.3
     hooks:
       - id: isort
 
@@ -46,7 +45,7 @@ repos: # pre-commit autoupdate
         additional_dependencies: [black]
 
   - repo: https://github.com/asottile/add-trailing-comma
-    rev: v2.3.0
+    rev: v2.4.0
     hooks:
       - id: add-trailing-comma
         args: [--py36-plus]

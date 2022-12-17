@@ -1,0 +1,16 @@
+build/
+dist/
+public/
+*.egg-info/
+*.egg
+*.py[cod]
+__pycache__/
+*.so
+*~
+.DS_Store
+*.swp
+.cache
+.coverage
+htmlcov
+MANIFEST
+target
