@@ -1,5 +1,5 @@
 name: Release
-"on":
+on:
   push:
     branches:
       - main
@@ -13,7 +13,6 @@ jobs:
         with:
           cache: npm
           node-version: 16
-      - run: npm ci
-      - run: npx semantic-release
+      - run: npm install @semantic-release/github && npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

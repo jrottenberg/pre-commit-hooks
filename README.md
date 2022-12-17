@@ -22,7 +22,6 @@ EOF
 
 ### Pinned Update
 
-
 WIP: Update any pinned version discovered in the project.
 
 #### Current
@@ -35,11 +34,6 @@ WIP: Update any pinned version discovered in the project.
  - Dockerfile
 
 
+### Secrets
 
-
-### Meta
-
-Adjust `.pre-commit-config.yaml` for various little bugs that pre-commit won't fix :
-
- - [pre-commit fails to install flake8 hook](https://github.com/pre-commit/pre-commit/issues/2596) - repo moved from gitlab to github
- - [Autoupdate to correct references of "git://github.com/"](https://github.com/pre-commit/pre-commit/issues/2212) - github stopped support for unauthenticated git protocol
+TODO: detect if secrets are committed in clear, for sops, ansible-vault, etc
