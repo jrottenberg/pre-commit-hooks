@@ -1,8 +1,7 @@
 import subprocess
 from typing import Any
 
-from packaging.version import parse as parseVersion
-
+from packaging import version
 
 class CalledProcessError(RuntimeError):
     pass
@@ -48,10 +47,15 @@ def get_all_tags(remote: str) -> list[str]:
             tag = line.split("/")[-1]
         except AttributeError:
             continue
+        try:
+            version.parse(tag)
+        except version.InvalidVersion:
+            continue
         out.append(tag)
     return out
 
 
 def highest_version(all_versions: list[str]) -> str:
-    all_versions.sort(key=parseVersion)
+    all_versions.sort(key=version.parse)
     return all_versions[-1]
+
