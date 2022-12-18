@@ -6,6 +6,7 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    environment: publish
     container: node:lts
     steps:
       - uses: actions/checkout@v3
