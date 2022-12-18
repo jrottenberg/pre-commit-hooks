@@ -2,8 +2,6 @@ import subprocess
 from typing import Any
 
 from packaging import version
-from packaging import version
-
 
 
 class CalledProcessError(RuntimeError):
