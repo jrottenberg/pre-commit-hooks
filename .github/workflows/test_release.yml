@@ -6,6 +6,7 @@ on:
 jobs:
   release-test:
     runs-on: ubuntu-latest
+    environment: test
     container: node:lts
     steps:
       - uses: actions/checkout@v3
@@ -15,4 +16,6 @@ jobs:
       - run: npm install @semantic-release/release-notes-generator
       - run: npm install @semantic-release/changelog
       - run: npm install @semantic-release/github
-      - run: npx semantic-release --dry-run --no-ci --branches $CI_COMMIT_BRANCH
+      - run: npx semantic-release --dry-run --no-ci --branches ${GITHUB_REF_NAME}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
