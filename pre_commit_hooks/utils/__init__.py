@@ -52,6 +52,10 @@ def get_all_tags(remote: str) -> list[str]:
             version.parse(tag)
         except version.InvalidVersion:
             continue
+        try:
+            version.parse(tag)
+        except version.InvalidVersion:
+            continue
         out.append(tag)
     return out
 

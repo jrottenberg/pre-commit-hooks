@@ -1,19 +1,18 @@
 name: Release
-"on":
+on:
   push:
     branches:
       - main
 jobs:
   release:
-    name: release
     runs-on: ubuntu-latest
+    container: node:lts
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          cache: npm
-          node-version: 16
-      - run: npm ci
+      - run: npm install @semantic-release/commit-analyzer
+      - run: npm install @semantic-release/release-notes-generator
+      - run: npm install @semantic-release/changelog
+      - run: npm install @semantic-release/github
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
