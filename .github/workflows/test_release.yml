@@ -9,4 +9,8 @@ jobs:
     container: node:lts
     steps:
       - uses: actions/checkout@v3
-      - run: npm install @semantic-release/github && npx semantic-release --dry-run --no-ci --branches $CI_COMMIT_BRANCH
+      - run: npm install @semantic-release/commit-analyzer
+      - run: npm install @semantic-release/release-notes-generator
+      - run: npm install @semantic-release/changelog
+      - run: npm install @semantic-release/github
+      - run: npx semantic-release --dry-run --no-ci --branches $CI_COMMIT_BRANCH
