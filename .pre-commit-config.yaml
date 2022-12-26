@@ -30,7 +30,7 @@ repos: # pre-commit autoupdate
           [--in-place, --remove-all-unused-imports, --remove-unused-variables]
 
   - repo: https://github.com/pycqa/isort
-    rev: v5.11.3
+    rev: 5.11.4
     hooks:
       - id: isort
 
@@ -65,7 +65,7 @@ repos: # pre-commit autoupdate
         exclude: ^testing/resources/
 
   - repo: https://github.com/pre-commit/pre-commit
-    rev: v2.20.0
+    rev: v2.21.0
     hooks:
       - id: validate_manifest
 
