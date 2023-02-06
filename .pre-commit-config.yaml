@@ -23,7 +23,7 @@ repos: # pre-commit autoupdate
         args: [--fix=auto]
 
   - repo: https://github.com/pycqa/autoflake
-    rev: v2.0.0
+    rev: v2.0.1
     hooks:
       - id: autoflake
         args:
@@ -35,7 +35,7 @@ repos: # pre-commit autoupdate
       - id: isort
 
   - repo: https://github.com/psf/black
-    rev: 22.12.0
+    rev: 23.1.0
     hooks:
       - id: black
         language_version: python3
@@ -65,7 +65,7 @@ repos: # pre-commit autoupdate
         exclude: ^testing/resources/
 
   - repo: https://github.com/pre-commit/pre-commit
-    rev: v3.0.2
+    rev: v3.0.4
     hooks:
       - id: validate_manifest
 
