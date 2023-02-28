@@ -65,7 +65,7 @@ repos: # pre-commit autoupdate
         exclude: ^testing/resources/
 
   - repo: https://github.com/pre-commit/pre-commit
-    rev: v3.0.4
+    rev: v3.1.0
     hooks:
       - id: validate_manifest
 
