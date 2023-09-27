@@ -23,7 +23,7 @@ repos: # pre-commit autoupdate
         args: [--fix=auto]
 
   - repo: https://github.com/pycqa/autoflake
-    rev: v2.2.0
+    rev: v2.2.1
     hooks:
       - id: autoflake
         args:
@@ -35,7 +35,7 @@ repos: # pre-commit autoupdate
       - id: isort
 
   - repo: https://github.com/psf/black
-    rev: 23.7.0
+    rev: 23.9.1
     hooks:
       - id: black
         language_version: python3
@@ -47,7 +47,7 @@ repos: # pre-commit autoupdate
         additional_dependencies: [black]
 
   - repo: https://github.com/asottile/add-trailing-comma
-    rev: v3.0.1
+    rev: v3.1.0
     hooks:
       - id: add-trailing-comma
         args: [--py36-plus]
@@ -65,12 +65,12 @@ repos: # pre-commit autoupdate
         exclude: ^testing/resources/
 
   - repo: https://github.com/pre-commit/pre-commit
-    rev: v3.3.3
+    rev: v3.4.0
     hooks:
       - id: validate_manifest
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.10.1
+    rev: v3.13.0
     hooks:
       - id: pyupgrade
         args: [--py37-plus]
