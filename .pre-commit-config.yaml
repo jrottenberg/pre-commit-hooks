@@ -6,7 +6,7 @@ repos: # pre-commit autoupdate
         args: [--select, F]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.5.0
     hooks:
       - id: check-added-large-files
       - id: check-ast
@@ -53,7 +53,7 @@ repos: # pre-commit autoupdate
         args: [--py36-plus]
 
   - repo: https://github.com/asottile/setup-cfg-fmt
-    rev: v2.4.0
+    rev: v2.5.0
     hooks:
       - id: setup-cfg-fmt
 
@@ -70,7 +70,7 @@ repos: # pre-commit autoupdate
       - id: validate_manifest
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.13.0
+    rev: v3.15.0
     hooks:
       - id: pyupgrade
         args: [--py37-plus]
