@@ -1,6 +1,6 @@
 repos: # pre-commit autoupdate
   - repo: https://github.com/pycqa/flake8
-    rev: 7.1.1
+    rev: 7.1.2
     hooks:
       - id: flake8
         args: [--select, F]
@@ -30,7 +30,7 @@ repos: # pre-commit autoupdate
           [--in-place, --remove-all-unused-imports, --remove-unused-variables]
 
   - repo: https://github.com/pycqa/isort
-    rev: 6.0.0
+    rev: 6.0.1
     hooks:
       - id: isort
 
