@@ -1,6 +1,6 @@
 repos: # pre-commit autoupdate
   - repo: https://github.com/pycqa/flake8
-    rev: 7.3.0
+    rev: 7.5.0
     hooks:
       - id: flake8
         args: [--select, F]
@@ -23,19 +23,19 @@ repos: # pre-commit autoupdate
         args: [--fix=auto]
 
   - repo: https://github.com/pycqa/autoflake
-    rev: v2.3.3
+    rev: v2.4.0
     hooks:
       - id: autoflake
         args:
           [--in-place, --remove-all-unused-imports, --remove-unused-variables]
 
   - repo: https://github.com/pycqa/isort
-    rev: 9.0.0b2
+    rev: 10.0.0b2
     hooks:
       - id: isort
 
   - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 26.5.1
+    rev: 26.10.1
     hooks:
       - id: black
         language_version: python3
@@ -53,24 +53,24 @@ repos: # pre-commit autoupdate
         args: [--py36-plus]
 
   - repo: https://github.com/asottile/setup-cfg-fmt
-    rev: v3.2.0
+    rev: v3.3.0
     hooks:
       - id: setup-cfg-fmt
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v2.3.0
+    rev: v2.4.1
     hooks:
       - id: mypy
         additional_dependencies: [types-all]
         exclude: ^testing/resources/
 
   - repo: https://github.com/pre-commit/pre-commit
-    rev: v4.6.1
+    rev: v4.7.0
     hooks:
       - id: validate_manifest
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.21.2
+    rev: v3.22.0
     hooks:
       - id: pyupgrade
         args: [--py37-plus]
